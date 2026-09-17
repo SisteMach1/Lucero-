@@ -1,42 +1,50 @@
-# Pastelería V3 - Móvil mejorado + Estética
+# Pastelería & Delicatessen — GitHub Pages
 
-## Cambios de esta versión
+Sitio web editable para un emprendimiento de pastelería y delicatessen.
 
-### 1. Botón ADMIN oculto
-- Puntito 14px esquina INFERIOR IZQUIERDA (left:10px bottom:10px)
-- Opacidad 7% oculto, hover crece a 30px y se ve
-- En celu 20px, al tocar crece
+## Incluye
 
-### 2. Visibilidad móvil mejorada (tu captura)
-- Botón WhatsApp del nav ahora NO es transparente: en móvil es color primario sólido con sombra, súper visible
-- Mejor contraste y tamaño táctil 44px mínimo
-- Navegación más fluida, sin saltos
+- Catálogo elegante y responsive.
+- Foto, descripción, categoría y precio/consulta para cada producto.
+- Botón **Hacer pedido** que abre WhatsApp con el producto escrito.
+- Botones generales para contactar por WhatsApp.
+- Panel **Admin** discreto.
+- Clave inicial: `luc26`
+- Edición de textos, marca, WhatsApp, colores y productos.
+- Los cambios del panel se guardan en `localStorage` del navegador.
+- Sin servidor ni base de datos: funciona como sitio estático en GitHub Pages.
 
-### 3. Fluidez
-- Transiciones cubic-bezier, will-change, lazy loading imágenes
-- Animaciones popIn, fadeIn
-- Scroll suave al cambiar categoría
-- Botones con hover translateY y active
-- Modal bloquea scroll del fondo
+## Cómo subirlo a GitHub
 
-### 4. Hero Card "Dulce & delicado" - CORREGIDO
-- ANTES: corazón con position:absolute top:70px pegado al texto
-- AHORA: estructura flex con gap, icono separado arriba con 32px margen, texto con espacio generoso
-- Corazón ahora es div independiente centrado, no pegado
-- Más respiración: padding, line-height 1.1
+1. Creá un repositorio nuevo en GitHub.
+2. Subí `index.html`, `style.css`, `app.js` y `README.md` a la raíz.
+3. Entrá en **Settings → Pages**.
+4. En **Build and deployment**, elegí **Deploy from a branch**.
+5. Elegí la rama `main` y carpeta `/ (root)`.
+6. Guardá y esperá a que GitHub publique el sitio.
 
-### 5. Letras más grandes
-- Body 16px, títulos 58px, descripciones 17px
+## Cómo personalizarlo
 
-### 6. Consultar -> WhatsApp
-- Todo "Consultar" es link a wa.me con mensaje predefinido
+Abrí tu página y tocá **Admin** (es intencionalmente discreto: tiene 8% de opacidad hasta pasar el mouse).
 
-### 7. Subir foto desde celu/PC
-- Input file con capture="environment" abre cámara en móvil
+Clave: `luc26`
 
-Clave: luc26
+Desde el panel podés cambiar:
 
-Ubicación admin:
-```
-· <- abajo izq 10px/10px
-```
+- Nombre e inicial de la marca.
+- Frases y textos.
+- Número de WhatsApp.
+- 8 colores del diseño.
+- Productos.
+- Categorías.
+- Descripciones.
+- Precio o texto "Consultar".
+- URL de cada foto.
+
+### Importante sobre las fotos
+
+Para usar una imagen en un producto, colocá una URL directa a una imagen pública, por ejemplo una imagen alojada en tu propio repositorio o en un servicio de imágenes.
+
+### Importante sobre el panel Admin
+
+Esta versión es 100% estática y la clave se valida en el navegador. Es adecuada para personalización de un sitio estático, pero **no debe considerarse una autenticación de seguridad real** para información confidencial. Si necesitás un panel verdaderamente privado con usuarios, contraseñas seguras y base de datos, hace falta un backend.
