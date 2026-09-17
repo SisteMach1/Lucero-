@@ -12,22 +12,18 @@
 </head>
 <body>
   <div id="toast"></div>
-
+  <button class="admin-dot" id="adminOpen" aria-label="Admin" title="Admin"></button>
   <header class="hero">
     <nav class="nav container">
       <a class="brand" href="#inicio">
         <span class="brand-mark" id="brandMark">M</span>
-        <span>
-          <strong id="brandName">Mi Pastelería</strong>
-          <small id="brandTag">Pastelería & Delicatessen</small>
-        </span>
+        <span><strong id="brandName">Mi Pastelería</strong><small id="brandTag">Pastelería & Delicatessen</small></span>
       </a>
       <div class="nav-actions">
         <a class="nav-link" href="#catalogo">Catálogo</a>
-        <button class="admin-trigger" id="adminOpen">Admin</button>
+        <a class="btn btn-outline nav-cta" id="heroWhatsappTop" target="_blank" rel="noopener">WhatsApp</a>
       </div>
     </nav>
-
     <div class="hero-content container" id="inicio">
       <div class="hero-copy">
         <span class="eyebrow" id="heroEyebrow">Hecho con amor · hecho para disfrutar</span>
@@ -39,115 +35,29 @@
         </div>
       </div>
       <div class="hero-decoration">
-        <div class="hero-card">
-          <span>♡</span>
-          <b id="heroCardText">Dulce & delicado</b>
-          <small>Producción artesanal</small>
-        </div>
+        <div class="hero-card"><span>♡</span><b id="heroCardText">Dulce & delicado</b><small>Producción artesanal</small></div>
       </div>
     </div>
   </header>
-
   <main>
     <section class="intro container">
       <span class="eyebrow">Nuestra selección</span>
       <h2 id="catalogTitle">Delicias para cada momento</h2>
       <p id="catalogSubtitle">Elegí tu favorito, conocé sus detalles y hacé tu pedido directamente por WhatsApp.</p>
     </section>
-
     <section class="catalog container" id="catalogo">
       <div class="category-bar" id="categoryBar"></div>
       <div class="products" id="products"></div>
       <div class="empty" id="emptyState" hidden>No hay productos en esta categoría.</div>
     </section>
-
     <section class="cta container">
-      <div>
-        <span class="eyebrow">¿Tenés una consulta?</span>
-        <h2>Hablemos de tu próximo pedido.</h2>
-        <p>Escribinos por WhatsApp y coordinamos juntos los detalles.</p>
-      </div>
+      <div><span class="eyebrow">¿Tenés una consulta?</span><h2>Hablemos de tu próximo pedido.</h2><p>Escribinos por WhatsApp y coordinamos juntos los detalles.</p></div>
       <a class="btn btn-light" id="ctaWhatsapp" target="_blank" rel="noopener">Contactar por WhatsApp</a>
     </section>
   </main>
-
-  <footer>
-    <div class="container footer-inner">
-      <div><strong id="footerName">Mi Pastelería</strong><span id="footerText"> · Pastelería & Delicatessen</span></div>
-      <small>© <span id="year"></span> Todos los derechos reservados.</small>
-    </div>
-  </footer>
-
-  <div class="modal" id="adminModal" aria-hidden="true">
-    <div class="modal-box login-box">
-      <button class="modal-close" data-close="adminModal">×</button>
-      <span class="modal-icon">✦</span>
-      <h2>Panel Admin</h2>
-      <p>Ingresá tu clave para editar el sitio.</p>
-      <input id="adminPassword" type="password" placeholder="Clave" autocomplete="current-password">
-      <button class="btn btn-primary full" id="loginBtn">Ingresar</button>
-      <div class="error" id="loginError"></div>
-    </div>
-  </div>
-
-  <div class="modal" id="editorModal" aria-hidden="true">
-    <div class="modal-box editor-box">
-      <button class="modal-close" data-close="editorModal">×</button>
-      <div class="editor-header">
-        <div>
-          <span class="eyebrow">Panel privado</span>
-          <h2>Editar mi emprendimiento</h2>
-        </div>
-        <button class="btn btn-secondary" id="resetBtn">Restaurar</button>
-      </div>
-
-      <div class="tabs">
-        <button class="tab active" data-tab="general">General</button>
-        <button class="tab" data-tab="colores">Colores</button>
-        <button class="tab" data-tab="productos">Productos</button>
-      </div>
-
-      <div class="tab-content active" id="tab-general">
-        <div class="form-grid">
-          <label>Nombre del emprendimiento<input id="editBrandName"></label>
-          <label>Inicial / marca<input id="editBrandMark"></label>
-          <label>Subtítulo<input id="editBrandTag"></label>
-          <label>Frase pequeña<input id="editHeroEyebrow"></label>
-          <label>Título principal<input id="editHeroTitle"></label>
-          <label>Texto de presentación<textarea id="editHeroText"></textarea></label>
-          <label>Texto del bloque decorativo<input id="editHeroCardText"></label>
-          <label>Título del catálogo<input id="editCatalogTitle"></label>
-          <label>Subtítulo del catálogo<textarea id="editCatalogSubtitle"></textarea></label>
-          <label class="wide">WhatsApp (solo números, con código de país)<input id="editWhatsapp" placeholder="54911XXXXXXXX"></label>
-        </div>
-      </div>
-
-      <div class="tab-content" id="tab-colores">
-        <div class="color-grid">
-          <label>Color principal<input type="color" id="colorPrimary"></label>
-          <label>Color secundario<input type="color" id="colorSecondary"></label>
-          <label>Fondo<input type="color" id="colorBackground"></label>
-          <label>Fondo suave<input type="color" id="colorSoft"></label>
-          <label>Texto<input type="color" id="colorText"></label>
-          <label>Texto suave<input type="color" id="colorMuted"></label>
-          <label>Acento<input type="color" id="colorAccent"></label>
-          <label>Blanco<input type="color" id="colorWhite"></label>
-        </div>
-        <p class="hint">Los cambios se guardan en este navegador. No necesitás tocar el código para personalizar el diseño.</p>
-      </div>
-
-      <div class="tab-content" id="tab-productos">
-        <div class="product-editor-top">
-          <button class="btn btn-primary" id="addProductBtn">+ Agregar producto</button>
-          <span class="hint">Podés agregar fotos usando una URL de imagen.</span>
-        </div>
-        <div id="productEditorList"></div>
-      </div>
-
-      <button class="btn btn-primary save-all" id="saveBtn">Guardar cambios</button>
-    </div>
-  </div>
-
+  <footer><div class="container footer-inner"><div><strong id="footerName">Mi Pastelería</strong><span id="footerText"> · Pastelería & Delicatessen</span></div><small>© <span id="year"></span> Todos los derechos reservados.</small></div></footer>
+  <div class="modal" id="adminModal" aria-hidden="true"><div class="modal-box login-box"><button class="modal-close" data-close="adminModal">×</button><span class="modal-icon">✦</span><h2>Panel Admin</h2><p>Ingresá tu clave para editar el sitio.</p><input id="adminPassword" type="password" placeholder="Clave" autocomplete="current-password"><button class="btn btn-primary full" id="loginBtn">Ingresar</button><div class="error" id="loginError"></div><p class="hint" style="margin-top:12px">Pista: el botón admin está oculto en la esquina inferior izquierda como un puntito.</p></div></div>
+  <div class="modal" id="editorModal" aria-hidden="true"><div class="modal-box editor-box"><button class="modal-close" data-close="editorModal">×</button><div class="editor-header"><div><span class="eyebrow">Panel privado</span><h2>Editar mi emprendimiento</h2></div><button class="btn btn-secondary" id="resetBtn">Restaurar</button></div><div class="tabs"><button class="tab active" data-tab="general">General</button><button class="tab" data-tab="colores">Colores</button><button class="tab" data-tab="productos">Productos</button></div><div class="tab-content active" id="tab-general"><div class="form-grid"><label>Nombre del emprendimiento<input id="editBrandName"></label><label>Inicial / marca<input id="editBrandMark"></label><label>Subtítulo<input id="editBrandTag"></label><label>Frase pequeña<input id="editHeroEyebrow"></label><label>Título principal<input id="editHeroTitle"></label><label>Texto de presentación<textarea id="editHeroText"></textarea></label><label>Texto del bloque decorativo<input id="editHeroCardText"></label><label>Título del catálogo<input id="editCatalogTitle"></label><label>Subtítulo del catálogo<textarea id="editCatalogSubtitle"></textarea></label><label class="wide">WhatsApp (solo números, con código de país)<input id="editWhatsapp" placeholder="54911XXXXXXXX"></label></div></div><div class="tab-content" id="tab-colores"><div class="color-grid"><label>Color principal<input type="color" id="colorPrimary"></label><label>Color secundario<input type="color" id="colorSecondary"></label><label>Fondo<input type="color" id="colorBackground"></label><label>Fondo suave<input type="color" id="colorSoft"></label><label>Texto<input type="color" id="colorText"></label><label>Texto suave<input type="color" id="colorMuted"></label><label>Acento<input type="color" id="colorAccent"></label><label>Blanco<input type="color" id="colorWhite"></label></div><p class="hint">Los cambios se guardan en este navegador.</p></div><div class="tab-content" id="tab-productos"><div class="product-editor-top"><button class="btn btn-primary" id="addProductBtn">+ Agregar producto</button><span class="hint">Ahora podés subir foto desde tu celu/PC o pegar una URL. La foto se guarda en tu navegador.</span></div><div id="productEditorList"></div></div><button class="btn btn-primary save-all" id="saveBtn">Guardar cambios</button></div></div>
   <script src="app.js"></script>
 </body>
 </html>
