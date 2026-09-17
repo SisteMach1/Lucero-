@@ -2,29 +2,28 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <meta name="theme-color" content="#7a4052">
   <title>Mi Pastelería & Delicatessen</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=8">
 </head>
 <body>
   <div id="toast"></div>
+  <!-- ADMIN UNICO - ABAJO IZQUIERDA CHIQUITO -->
+  <button id="adminOpen" class="admin-hidden" aria-label="Admin"></button>
 
   <header class="hero">
     <nav class="nav container">
       <a class="brand" href="#inicio">
         <span class="brand-mark" id="brandMark">M</span>
-        <span>
-          <strong id="brandName">Mi Pastelería</strong>
-          <small id="brandTag">Pastelería & Delicatessen</small>
-        </span>
+        <span><strong id="brandName">Mi Pastelería</strong><small id="brandTag">Pastelería & Delicatessen</small></span>
       </a>
       <div class="nav-actions">
         <a class="nav-link" href="#catalogo">Catálogo</a>
-        <button class="admin-trigger" id="adminOpen">Admin</button>
+        <a class="btn btn-whatsapp-nav" id="heroWhatsappTop" target="_blank" rel="noopener">WhatsApp</a>
       </div>
     </nav>
 
@@ -40,7 +39,7 @@
       </div>
       <div class="hero-decoration">
         <div class="hero-card">
-          <span>♡</span>
+          <div class="hero-card-icon" id="heroCardIcon">♡</div>
           <b id="heroCardText">Dulce & delicado</b>
           <small>Producción artesanal</small>
         </div>
@@ -54,100 +53,38 @@
       <h2 id="catalogTitle">Delicias para cada momento</h2>
       <p id="catalogSubtitle">Elegí tu favorito, conocé sus detalles y hacé tu pedido directamente por WhatsApp.</p>
     </section>
-
     <section class="catalog container" id="catalogo">
       <div class="category-bar" id="categoryBar"></div>
       <div class="products" id="products"></div>
       <div class="empty" id="emptyState" hidden>No hay productos en esta categoría.</div>
     </section>
-
     <section class="cta container">
-      <div>
-        <span class="eyebrow">¿Tenés una consulta?</span>
-        <h2>Hablemos de tu próximo pedido.</h2>
-        <p>Escribinos por WhatsApp y coordinamos juntos los detalles.</p>
-      </div>
+      <div><span class="eyebrow">¿Tenés una consulta?</span><h2>Hablemos de tu próximo pedido.</h2><p>Escribinos por WhatsApp y coordinamos juntos los detalles.</p></div>
       <a class="btn btn-light" id="ctaWhatsapp" target="_blank" rel="noopener">Contactar por WhatsApp</a>
     </section>
   </main>
 
-  <footer>
-    <div class="container footer-inner">
-      <div><strong id="footerName">Mi Pastelería</strong><span id="footerText"> · Pastelería & Delicatessen</span></div>
-      <small>© <span id="year"></span> Todos los derechos reservados.</small>
-    </div>
-  </footer>
+  <footer><div class="container footer-inner"><div><strong id="footerName">Mi Pastelería</strong><span id="footerText"> · Pastelería & Delicatessen</span></div><small>© <span id="year"></span> Todos los derechos reservados.</small></div></footer>
 
   <div class="modal" id="adminModal" aria-hidden="true">
     <div class="modal-box login-box">
       <button class="modal-close" data-close="adminModal">×</button>
-      <span class="modal-icon">✦</span>
-      <h2>Panel Admin</h2>
-      <p>Ingresá tu clave para editar el sitio.</p>
-      <input id="adminPassword" type="password" placeholder="Clave" autocomplete="current-password">
-      <button class="btn btn-primary full" id="loginBtn">Ingresar</button>
-      <div class="error" id="loginError"></div>
+      <span class="modal-icon">✦</span><h2>Panel Admin</h2><p>Ingresá tu clave para editar el sitio.</p>
+      <input id="adminPassword" type="password" placeholder="Clave"><button class="btn btn-primary full" id="loginBtn">Ingresar</button><div class="error" id="loginError"></div>
     </div>
   </div>
 
   <div class="modal" id="editorModal" aria-hidden="true">
     <div class="modal-box editor-box">
       <button class="modal-close" data-close="editorModal">×</button>
-      <div class="editor-header">
-        <div>
-          <span class="eyebrow">Panel privado</span>
-          <h2>Editar mi emprendimiento</h2>
-        </div>
-        <button class="btn btn-secondary" id="resetBtn">Restaurar</button>
-      </div>
-
-      <div class="tabs">
-        <button class="tab active" data-tab="general">General</button>
-        <button class="tab" data-tab="colores">Colores</button>
-        <button class="tab" data-tab="productos">Productos</button>
-      </div>
-
-      <div class="tab-content active" id="tab-general">
-        <div class="form-grid">
-          <label>Nombre del emprendimiento<input id="editBrandName"></label>
-          <label>Inicial / marca<input id="editBrandMark"></label>
-          <label>Subtítulo<input id="editBrandTag"></label>
-          <label>Frase pequeña<input id="editHeroEyebrow"></label>
-          <label>Título principal<input id="editHeroTitle"></label>
-          <label>Texto de presentación<textarea id="editHeroText"></textarea></label>
-          <label>Texto del bloque decorativo<input id="editHeroCardText"></label>
-          <label>Título del catálogo<input id="editCatalogTitle"></label>
-          <label>Subtítulo del catálogo<textarea id="editCatalogSubtitle"></textarea></label>
-          <label class="wide">WhatsApp (solo números, con código de país)<input id="editWhatsapp" placeholder="54911XXXXXXXX"></label>
-        </div>
-      </div>
-
-      <div class="tab-content" id="tab-colores">
-        <div class="color-grid">
-          <label>Color principal<input type="color" id="colorPrimary"></label>
-          <label>Color secundario<input type="color" id="colorSecondary"></label>
-          <label>Fondo<input type="color" id="colorBackground"></label>
-          <label>Fondo suave<input type="color" id="colorSoft"></label>
-          <label>Texto<input type="color" id="colorText"></label>
-          <label>Texto suave<input type="color" id="colorMuted"></label>
-          <label>Acento<input type="color" id="colorAccent"></label>
-          <label>Blanco<input type="color" id="colorWhite"></label>
-        </div>
-        <p class="hint">Los cambios se guardan en este navegador. No necesitás tocar el código para personalizar el diseño.</p>
-      </div>
-
-      <div class="tab-content" id="tab-productos">
-        <div class="product-editor-top">
-          <button class="btn btn-primary" id="addProductBtn">+ Agregar producto</button>
-          <span class="hint">Podés agregar fotos usando una URL de imagen.</span>
-        </div>
-        <div id="productEditorList"></div>
-      </div>
-
+      <div class="editor-header"><div><span class="eyebrow">Panel privado</span><h2>Editar mi emprendimiento</h2></div><button class="btn btn-secondary" id="resetBtn">Restaurar</button></div>
+      <div class="tabs"><button class="tab active" data-tab="general">General</button><button class="tab" data-tab="colores">Colores</button><button class="tab" data-tab="productos">Productos</button></div>
+      <div class="tab-content active" id="tab-general"><div class="form-grid"><label>Nombre<input id="editBrandName"></label><label>Inicial<input id="editBrandMark"></label><label>Subtítulo<input id="editBrandTag"></label><label>Frase pequeña<input id="editHeroEyebrow"></label><label>Título principal<input id="editHeroTitle"></label><label>Texto presentación<textarea id="editHeroText"></textarea></label><label>Ícono bloque (corazón) - editable<input id="editHeroCardIcon" placeholder="♡ ♥ ❤️"></label><label>Texto bloque<input id="editHeroCardText"></label><label>Título catálogo<input id="editCatalogTitle"></label><label>Subtítulo catálogo<textarea id="editCatalogSubtitle"></textarea></label><label class="wide">WhatsApp (solo números)<input id="editWhatsapp" placeholder="54911XXXXXXXX"></label></div></div>
+      <div class="tab-content" id="tab-colores"><div class="color-grid"><label>Principal<input type="color" id="colorPrimary"></label><label>Secundario<input type="color" id="colorSecondary"></label><label>Fondo<input type="color" id="colorBackground"></label><label>Fondo suave<input type="color" id="colorSoft"></label><label>Texto<input type="color" id="colorText"></label><label>Texto suave<input type="color" id="colorMuted"></label><label>Acento<input type="color" id="colorAccent"></label><label>Blanco<input type="color" id="colorWhite"></label></div></div>
+      <div class="tab-content" id="tab-productos"><div class="product-editor-top"><button class="btn btn-primary" id="addProductBtn">+ Agregar producto</button><span class="hint">Subí foto desde celu/PC o pegá URL</span></div><div id="productEditorList"></div></div>
       <button class="btn btn-primary save-all" id="saveBtn">Guardar cambios</button>
     </div>
   </div>
-
-  <script src="app.js"></script>
+  <script src="app.js?v=8"></script>
 </body>
 </html>
