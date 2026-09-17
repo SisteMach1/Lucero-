@@ -7,7 +7,6 @@ const defaults = {
   heroEyebrow: "Hecho con amor · hecho para disfrutar",
   heroTitle: "Pequeños placeres,<br><em>momentos inolvidables.</em>",
   heroText: "Pastelería artesanal y delicatessen seleccionada para convertir cada ocasión en algo especial.",
-  heroCardIcon: "♡",
   heroCardText: "Dulce & delicado",
   catalogTitle: "Delicias para cada momento",
   catalogSubtitle: "Elegí tu favorito, conocé sus detalles y hacé tu pedido directamente por WhatsApp.",
@@ -55,7 +54,6 @@ function render(){
   $("heroEyebrow").textContent=state.heroEyebrow;
   $("heroTitle").innerHTML=state.heroTitle;
   $("heroText").textContent=state.heroText;
-  $("heroCardIcon").textContent=state.heroCardIcon||"♡";
   $("heroCardText").textContent=state.heroCardText;
   $("catalogTitle").textContent=state.catalogTitle;
   $("catalogSubtitle").textContent=state.catalogSubtitle;
@@ -112,7 +110,7 @@ document.querySelectorAll(".tab").forEach(tab=>tab.onclick=()=>{
   tab.classList.add("active");$("tab-"+tab.dataset.tab).classList.add("active");
 });
 
-const generalFields=["brandName","brandMark","brandTag","heroEyebrow","heroTitle","heroText","heroCardIcon","heroCardText","catalogTitle","catalogSubtitle","whatsapp"];
+const generalFields=["brandName","brandMark","brandTag","heroEyebrow","heroTitle","heroText","heroCardText","catalogTitle","catalogSubtitle","whatsapp"];
 function fillEditor(){
   generalFields.forEach(k=>$("edit"+k.charAt(0).toUpperCase()+k.slice(1)).value=state[k]);
   Object.entries(state.colors).forEach(([k,v])=>$("color"+k.charAt(0).toUpperCase()+k.slice(1)).value=v);
